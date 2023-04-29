@@ -1,4 +1,5 @@
 import ExpenseItem from "./component/Expenses/ExpenceItem";
+import ExpenseForm from "./component/Expenses/ExpenseForm";
 import Card from "./component/UI/Card";
 import "./App.css";
 
@@ -36,6 +37,7 @@ const App = () => {
 
   return (
     <Card className="App">
+      <ExpenseForm/>
       <h1> Expence Tracker </h1>
       {expenses.map((detail) => {
         return (
