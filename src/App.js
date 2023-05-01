@@ -1,6 +1,6 @@
-import ExpenseItem from "./component/Expenses/ExpenceItem";
-import ExpenseForm from "./component/Expenses/ExpenseForm";
-import Card from "./component/UI/Card";
+//import ExpenseItem from "./component/Expenses/ExpenceItem";
+import Expenses from "./component/Expenses/Expenses";
+import NewExpense from "./component/Expenses/NewExpense";
 import "./App.css";
 
 const App = () => {
@@ -36,22 +36,12 @@ const App = () => {
   ];
 
   return (
-    <Card className="App">
-      <ExpenseForm/>
-      <h1> Expence Tracker </h1>
-      {expenses.map((detail) => {
-        return (
-          <ExpenseItem
-            id={detail.id}
-            title={detail.title}
-            amount={detail.amount}
-            date={detail.date}
-            locationOfExpenditure = {detail.locationOfExpenditure}
-          ></ExpenseItem>
-        );
-      })}
-    </Card>
+    <div>
+      <NewExpense />
+      <Expenses item={expenses} />
+      
+    </div>
   );
-}
+};
 
 export default App;
