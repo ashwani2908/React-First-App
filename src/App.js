@@ -1,6 +1,7 @@
 //import ExpenseItem from "./component/Expenses/ExpenceItem";
+import React, { useState } from "react";
 import Expenses from "./component/Expenses/Expenses";
-import NewExpense from "./component/Expenses/NewExpense";
+import NewExpense from "./component/NewExpense/NewExpense";
 import "./App.css";
 
 const App = () => {
@@ -34,11 +35,17 @@ const App = () => {
       locationOfExpenditure: "Study",
     },
   ];
+  const [exp,setUserInput]=useState(expenses);
+
+  const addExpenseHandler = (expense) => {
+    setUserInput([...exp,expense]);
+    console.log(exp)
+  }
 
   return (
     <div>
-      <NewExpense />
-      <Expenses item={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses item={exp} />
       
     </div>
   );
