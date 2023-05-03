@@ -5,7 +5,7 @@ import NewExpense from "./component/NewExpense/NewExpense";
 import "./App.css";
 
 const App = () => {
-  const expenses = [
+  const dummy_expenses = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -35,11 +35,13 @@ const App = () => {
       locationOfExpenditure: "Study",
     },
   ];
-  const [exp,setUserInput]=useState(expenses);
+  const [exp,setUserInput]=useState(dummy_expenses);
 
   const addExpenseHandler = (expense) => {
-    setUserInput([...exp,expense]);
-    console.log(exp)
+    //setUserInput([expense,...exp]);
+    setUserInput( prevExpense => {
+      return [expense,...prevExpense];
+    })
   }
 
   return (
